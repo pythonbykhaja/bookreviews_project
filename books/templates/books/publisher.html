@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book reviews</title>
+</head>
+<body>
+
+<div>
+    <h1>Publisher</h1>
+</div>
+<div>
+    <form action="{% url 'publisher_home' %}">
+     name: <input type="text" placeholder="Enter publisher name" name="name"><br/>
+     website: <input type="url" placeholder="Enter website of publisher" name="website"><br/>
+     email: <input type="email" placeholder="Enter the email id of publisher" name="email">
+    <input type="submit" value="Create">
+
+</form>
+
+</div>
+
+</body>
+</html>
