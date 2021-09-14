@@ -21,5 +21,17 @@ def create_publisher(request):
         Publisher.objects.create(name=name, email=email, website=website)
     except Exception as e:
         return HttpResponse(f"Couldnot insert record {e}")
-    return HttpResponse("Record Inserted successfully")
+    return render(request, 'books/publisher_record_created.html', context={'message': 'successuly inserted publisher record'})
+
+
+def get_all_publishers(request):
+    """
+    This view will return all the publishers
+    """
+    publishers = Publisher.objects.all()
+    context = {
+        'publishers': publishers
+    }
+    return render(request, 'books/publishers.html', context=context )
+
 
