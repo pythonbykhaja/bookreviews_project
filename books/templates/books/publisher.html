@@ -2,16 +2,29 @@
 
 {% block content%}
 <div>
-    <h1>Publisher</h1>
-</div>
-<div>
     <form action="{% url 'publisher_home' %}">
-     name: <input type="text" placeholder="Enter publisher name" name="name"><br/>
-     website: <input type="url" placeholder="Enter website of publisher" name="website"><br/>
-     email: <input type="email" placeholder="Enter the email id of publisher" name="email">
-    <input type="submit" value="Create">
 
-</form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" placeholder="Enter publisher name" name="name" class="form-control" id="name" aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text">Enter the name of the publisher</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" placeholder="Enter Email Address" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Enter the Email id of the publisher</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="website" class="form-label">Website</label>
+            <input type="url" placeholder="Enter Email Address" name="website" class="form-control" id="website" aria-describedby="websiteHelp">
+            <div id="websiteHelp" class="form-text">Enter Website  of the publisher</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
 
 </div>
 {% endblock %}

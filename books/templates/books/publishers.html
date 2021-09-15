@@ -1,25 +1,24 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 
 
-<table id="publishers">
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>website</th>
-            <th>email</th>
-        </tr>
-        {% for publisher in publishers %}
-        <tr>
-            <td>{{ publisher.id }}</td>
-            <td>{{ publisher.name }}</td>
-            <td>{{ publisher.website }}</td>
-            <td>{{ publisher.email }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<table id="publishers" class="table table-dark table-striped table-hover">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">website</th>
+        <th scope="col">email</th>
+    </tr>
+    {% for publisher in publishers %}
+    <tr>
+        <td scope="row">{{ publisher.id }}</td>
+        <td scope="row">{{ publisher.name }}</td>
+        <td scope="row">{{ publisher.website }}</td>
+        <td scope="row">{{ publisher.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
 
 
 {% endblock %}
