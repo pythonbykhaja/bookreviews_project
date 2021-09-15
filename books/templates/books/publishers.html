@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>book reviews</title>
-<style>
-#publishers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-#publishers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+{% extends 'base.html' %}
 
-#publishers tr:nth-child(even){background-color: #f2f2f2;}
+{% block content %}
 
-#publishers tr:hover {background-color: #ddd;}
 
-#publishers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-</style>
-
-</head>
-<body>
-    <table id="publishers">
+<table id="publishers">
         <tr>
             <th>id</th>
             <th>name</th>
@@ -46,5 +20,6 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+
+
+{% endblock %}
