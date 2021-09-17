@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from books.models import Publisher
+from books.models import Publisher,Book
+
 
 # Create your views here.
 
@@ -9,6 +10,7 @@ def publisher(request):
     Publisher view
     """
     return render(request, 'books/publisher.html')
+
 
 def create_publisher(request):
     """
@@ -21,7 +23,8 @@ def create_publisher(request):
         Publisher.objects.create(name=name, email=email, website=website)
     except Exception as e:
         return HttpResponse(f"Couldnot insert record {e}")
-    return render(request, 'books/publisher_record_created.html', context={'message': 'successuly inserted publisher record'})
+    return render(request, 'books/publisher_record_created.html',
+                  context={'message': 'successfully inserted publisher record'})
 
 
 def get_all_publishers(request):
@@ -32,6 +35,15 @@ def get_all_publishers(request):
     context = {
         'publishers': publishers
     }
-    return render(request, 'books/publishers.html', context=context )
+    return render(request, 'books/publishers.html', context=context)
 
 
+def get_all_books(request):
+    """
+    This view is to return all the books
+    """
+    books = Book.objects.all()
+    context = {
+        'books': books
+    }
+    return render(request, 'books/books.html', context=context)

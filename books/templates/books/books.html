@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table id="books" class="table table-dark table-striped table-hover">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">publication_date</th>
+        <th scope="col">publisher</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td scope="row">{{ book.id }}</td>
+        <td scope="row">{{ book.title }}</td>
+        <td scope="row">{{ book.publication_date | date:"d/m/Y" }}</td>
+        <td scope="row">{{ book.publisher.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

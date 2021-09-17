@@ -22,4 +22,5 @@ urlpatterns = [
     path('',views.publisher, name='home'),
     path('books/publisher', views.create_publisher, name='publisher_home'),
     path('books/publishers', views.get_all_publishers, name='publishers_all'),
+    path('books/books', views.get_all_books, name='books_all')
 ]
