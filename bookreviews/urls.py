@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from books import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(settings.STATIC_URL, static),
     path('',views.publisher, name='home'),
     path('books/publisher', views.create_publisher, name='publisher_home'),
     path('books/publishers', views.get_all_publishers, name='publishers_all'),
-    path('books/books', views.get_all_books, name='books_all')
+    path('books/books', views.get_all_books, name='books_all'),
+
 ]
