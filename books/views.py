@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from books.models import Publisher,Book
 
@@ -47,3 +47,23 @@ def get_all_books(request):
         'books': books
     }
     return render(request, 'books/books.html', context=context)
+
+
+def add_book(request):
+    publishers = [publisher.name for publisher in Publisher.objects.all()]
+    context = {
+        'publishers': publishers
+    }
+    return render(request, 'books/add_book.html', context=context)
+
+def create_book(request):
+    """
+    This method will submit the books to database
+    """
+    publisher_name = request.POST.get('publisher')
+    publisher = Publisher.objects.get(name=publisher_name)
+    title = request.POST.get('title')
+    publication_date = request.POST.get('publication_date')
+    Book.objects.create(title=title, publication_date=publication_date, publisher=publisher)
+
+    return HttpResponse('Created')
